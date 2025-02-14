@@ -39,7 +39,8 @@ long long	ft_atol(const char *str)
 			result = (result * 10) + (str[i] - '0');
 		else
 			break;
-		if ((result > 2147483648 && sign == -1) || (result > 2147483648 && signe == 1))
+		if ((result > 2147483648 && sign == -1) 
+			|| (result > 2147483648 && sign == 1))
 			return (result * sign);
 		i++;
 	}
@@ -63,4 +64,24 @@ char *split_helper(char *str, char **av)
 		i++;
 	}
 	return (str);
+}
+char **spliting_nums(char **av)
+{
+	int	i;
+	char *str;
+	char	**arr;
+	char **result;
+
+	i = 0;
+	str = ft_strdup("");
+	while (av[i])
+	{
+		arr = ft_split(av[i], ' ');
+		str = split_helper(str, arr);
+		free_strs(arr);
+		i++;
+	}
+	result = ft_split(str, ' ');
+	free(str);
+	return (result);
 }
