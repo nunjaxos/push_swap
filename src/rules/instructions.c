@@ -6,7 +6,7 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 08:28:40 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/14 12:27:31 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/02/22 20:35:05 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ int ft_rotate(t_stack **stack)
 		return (-1);
 	tmp = *stack;
 	last = ft_lstlast(*stack);
-	last->next = tmp;
+	*stack = (*stack)->next;
 	tmp->next = NULL;
+	last->next = tmp;
 	return (0);
 }
 
