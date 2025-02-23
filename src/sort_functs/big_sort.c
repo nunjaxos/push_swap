@@ -48,7 +48,7 @@ void	sort_helper2(int *i, int *range, t_stack **b, int size)
 		*range += 1;
 }
 
-void    push_to_a(t_stack **stack_a, t_stack **stack, int *arr, int size)
+void    push_to_a(t_stack **stack_a, t_stack **stack_b, int *arr, int size)
 {
     while ((*stack_b))
     {
