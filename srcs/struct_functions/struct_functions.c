@@ -6,13 +6,13 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 12:34:36 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/21 13:14:43 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/02/27 15:46:11 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-t_stack *ft_lstnew(int  content)
+t_stack *lstnew(int  content)
 {
     t_stack *node;
 
@@ -24,7 +24,22 @@ t_stack *ft_lstnew(int  content)
 	return (node);
 }
 
-void    ft_lstadd_back(t_stack  **lst, t_stack  *new)
+int lst_size(t_stack **stack_a)
+{
+    t_stack *tmp;
+    int i;
+
+    tmp = *stack_a;
+    i = 0;
+    while (tmp->next)
+    {
+        i++;
+        tmp = tmp->next;
+    }
+    return(i);
+}
+
+void    lstadd_back(t_stack  **lst, t_stack  *new)
 {
 	t_stack *iter;
 
@@ -41,26 +56,26 @@ void    ft_lstadd_back(t_stack  **lst, t_stack  *new)
 	}
 }
 
-void	ft_lstdelone(t_stack *lst)
+void	lstdelone(t_stack *lst)
 {
 	if (!lst)
-		return (1);
+		return ;
 	free(lst);
 }
 
-void	ft_lstclear(t_stack **lst)
+void	lstclear(t_stack **lst)
 {
-	t_list	*iter;
-	t_list	*tmp;
+	t_stack	*iter;
+	t_stack	*tmp;
 
-	if (!lst || !del)
+	if (!lst)
 		return ;
-	iter = (*lst);
+	iter = *lst;
 	while (iter)
 	{
 		tmp = iter;
 		iter = iter->next;
-		ft_lstdelone(tmp, del);
+		lstdelone(tmp);
 	}
 	*lst = NULL;
 }

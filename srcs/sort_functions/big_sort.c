@@ -6,7 +6,7 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 01:12:49 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/23 03:05:01 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/02/27 15:08:59 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void    sort_helper(int *i, int *range, t_stack **b, int size)
 
 void	sort_helper2(int *i, int *range, t_stack **b, int size)
 {
-	if (list_size(b) > 1 && ((*b)->next->content > (*b)->content))
+	if (lst_size(b) > 1 && ((*b)->next->content > (*b)->content))
 		sb(b);
 	if (*i < *range)
 		*i += 1;
@@ -58,7 +58,7 @@ void    push_to_a(t_stack **stack_a, t_stack **stack_b, int *arr, int size)
             size--;
         }
         else if ((*stack_b) ->next && (*stack_b)->next->content == arr[size])
-            sb(b);
+            sb(stack_b);
         else
             push_biggest_to_top(stack_b, arr);
     }
@@ -72,19 +72,19 @@ void sort_stack(t_stack **stack_a, t_stack **stack_b)
 
     arr = bubble_sort(stack_a);
     i = 0;
-    range = get_range(stack);
+    range = get_range(stack_a);
     size = lst_size(stack_a);
     while ((*stack_a))
     {
-        if ((*stack_a) <= arr[i])
+        if ((*stack_a)->content <= arr[i])
         {
             pb(stack_a, stack_b);
-            sort_helper(&i, &range, b, size);
+            sort_helper(&i, &range, stack_b, size);
         }
         else if ((*stack_a)->content <= arr[range])
         {
             pb(stack_a, stack_b);
-            sort_helper2(&i, &range, b , size);
+            sort_helper2(&i, &range, stack_b , size);
         }
         else
             ra(stack_a);

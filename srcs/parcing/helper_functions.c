@@ -47,7 +47,7 @@ long long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-char *split_helper(char *str, char **av)
+char	*split_helper(char *str, char **av)
 {
 	int	i;
 	char	*tmp;
@@ -65,7 +65,7 @@ char *split_helper(char *str, char **av)
 	}
 	return (str);
 }
-char **spliting_nums(char **av)
+char	**spliting_nums(char **av)
 {
 	int	i;
 	char *str;

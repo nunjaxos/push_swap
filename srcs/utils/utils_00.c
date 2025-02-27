@@ -6,26 +6,11 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:25:39 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/23 00:18:00 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/02/27 15:20:37 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-int lst_size(t_stack **stack_a)
-{
-    t_stack *tmp;
-    int i;
-
-    tmp = *stack_a;
-    i = 0;
-    while (tmp->next)
-    {
-        i++;
-        tmp = tmp->next;
-    }
-    return(i);
-}
 
 int find_small_index(t_stack **stack_a)
 {
@@ -64,7 +49,7 @@ int update_index(t_stack **stack_a)
     }
     return (0);
 }
-int push_small_to_b(t_stack **stack_a, t_stack **b)
+int push_small_to_b(t_stack **stack_a, t_stack **stack_b)
 {
     int small_index;
     
@@ -97,4 +82,22 @@ int stack_sorted(t_stack **stack_a)
     }
     return (1);
 }
+int is_sorted(char  **str)
+{
+    int i;
+    int j;
+    int len;
 
+    i = 0;
+    j = 0;
+    len = num_len(str);
+    while (i < len -1)
+    {
+        if (ft_atol(str[i]) < ft_atol(str[i + 1]))
+            j++;
+        i++;
+    }
+    if (j == len -1)
+        return (1);
+    return (0);
+}

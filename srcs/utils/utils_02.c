@@ -6,7 +6,7 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 02:18:37 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/23 02:21:42 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/02/27 15:22:04 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ t_stack *find_biggest(t_stack *stack_a)
             max = next;
         stack_a = next;
     }
-    retrun (max);
+    return (max);
 }
-int *convert_to_arr(t_stack **stack, int size)
+
+int *convert_to_arr(t_stack **stack_a, int size)
 {
     int *arr;
     int i;
@@ -45,4 +46,17 @@ int *convert_to_arr(t_stack **stack, int size)
         tmp = tmp->next;
     }
     return (arr);
+}
+
+void    helper_function(const char  *str, int *i, int *sign)
+{
+    while (str[*i] == 32 || (str[*i] >= '\t' && str[*i] <= '\r'))
+        (*i)++;
+    if (str[*i] == '-' && (str[*i + 1] >= '0' && str[*i + 1] <= '9'))
+    {
+        (*sign) *= -1;
+        (*i)++;
+    }
+    if (str[*i] == '+' && (str[*i + 1] >= '0' && str[*i + 1] <= '9'))
+        (*i)++;
 }
