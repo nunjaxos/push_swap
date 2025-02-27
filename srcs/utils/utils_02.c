@@ -6,7 +6,7 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 02:18:37 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/27 15:22:04 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:25:16 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stack *find_biggest(t_stack *stack_a)
     t_stack *max;
 
     max = stack_a;
-    while (stack_a ->next)
+    while (stack_a->next != NULL)
     {
         next = stack_a->next;
         if (next != NULL && next->content > max->content)
@@ -50,7 +50,7 @@ int *convert_to_arr(t_stack **stack_a, int size)
 
 void    helper_function(const char  *str, int *i, int *sign)
 {
-    while (str[*i] == 32 || (str[*i] >= '\t' && str[*i] <= '\r'))
+    while (str[*i] == ' ' || (str[*i] >= '\t' && str[*i] <= '\r'))
         (*i)++;
     if (str[*i] == '-' && (str[*i + 1] >= '0' && str[*i + 1] <= '9'))
     {

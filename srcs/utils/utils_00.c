@@ -6,7 +6,7 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:25:39 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/27 15:20:37 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/02/27 20:53:32 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,30 @@ int find_small_index(t_stack **stack_a)
 {
     t_stack *tmp;
     int min;
-    int i;
+    int index;
 
     tmp = *stack_a;
     min = tmp->content;
-    i = 0;
+    index = 0;
     while (tmp)
     {
         if (tmp->content < min)
         {
             min = tmp->content;
-            i = tmp->index;
+            index = tmp->index;
         }
         tmp = tmp->next;
     }
-    return (i);
+    return (index);
 }
-int update_index(t_stack **stack_a)
+int update_index(t_stack **stack)
 {
     t_stack *tmp;
     int i;
 
-    if (!(*stack_a))
+    if (!(*stack))
         return (1);
-    tmp = *stack_a;
+    tmp = *stack;
     i = 0;
     while (tmp)
     {
@@ -69,11 +69,11 @@ int push_small_to_b(t_stack **stack_a, t_stack **stack_b)
     return (0);
 }
 
-int stack_sorted(t_stack **stack_a)
+int stack_sorted(t_stack **stack)
 {
     t_stack *tmp;
 
-    tmp = *stack_a;
+    tmp = *stack;
     while (tmp->next)
     {
         if (tmp->content > tmp->next->content)
@@ -91,13 +91,13 @@ int is_sorted(char  **str)
     i = 0;
     j = 0;
     len = num_len(str);
-    while (i < len -1)
+    while (i < len - 1)
     {
         if (ft_atol(str[i]) < ft_atol(str[i + 1]))
             j++;
         i++;
     }
-    if (j == len -1)
+    if (j == len - 1)
         return (1);
     return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helper_functions.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/27 16:16:16 by abhmidat          #+#    #+#             */
+/*   Updated: 2025/02/27 20:43:01 by abhmidat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 char **free_strs(char **strs)
@@ -33,14 +45,15 @@ long long	ft_atol(const char *str)
 	i = 0;
 	result = 0;
 	sign = 1;
+	helper_function(str, &i, &sign);
 	while(str[i])
 	{
 		if (str[i] >= '0' && str[i] <= '9')
 			result = (result * 10) + (str[i] - '0');
 		else
-			break;
+			break ;
 		if ((result > 2147483648 && sign == -1) 
-			|| (result > 2147483648 && sign == 1))
+			|| (result > 2147483647 && sign == 1))
 			return (result * sign);
 		i++;
 	}

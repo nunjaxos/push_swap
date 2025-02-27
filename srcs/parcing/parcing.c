@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parcing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/27 16:16:24 by abhmidat          #+#    #+#             */
+/*   Updated: 2025/02/27 19:03:42 by abhmidat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 int check_nill(char **av)
@@ -16,27 +28,27 @@ int check_nill(char **av)
 
 int check_invalid(char *av)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (av[i])
-    {
-        if ((av[i] == '-' && av[i + 1]  == ' ') 
-            || (av[i] == '+' && av[i + 1] == ' '))
-            return (1);
-        else if ((av[i] = '-' && !(av[i + 1])) 
-            || (av[i] == '+' &&  !(av[i + 1])))
-            return(1);
-        else if ((av[i] >= 33 && av[i] <= 42) 
-            || (av[i] == 44) || (av[i] >= 46 && av[i]<= 47) 
-            || (av[i] >= 58 && av[i] < 127))
-            return (1);
-        else if((av[i] >= '0' && av[i] <= '9') 
-            && (av[i + 1] == '-'|| av[i + 1] == '+'))
-            return (1);
-        i++;
-    }
-    return (0);
+	i = 0;
+	while (av[i])
+	{
+		if ((av[i] == '-' && (av[i + 1]) == ' ')
+			|| (av[i] == '+' && (av[i + 1]) == ' '))
+			return (1);
+		else if ((av[i] == '-' && !(av[i + 1]))
+			|| (av[i] == '+' && !(av[i + 1])))
+			return (1);
+		else if ((av[i] <= 31) || (av[i] >= 33 && av[i] <= 42)
+			|| (av[i] == 44 || (av[i] >= 46 && av[i] <= 47))
+			|| (av[i] >= 58 && av[i] < 127))
+			return (1);
+		else if ((av[i] >= '0' && av[i] <= '9')
+			&& (av[i + 1] == '+' || av[i + 1] == '-'))
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 int check_invalid_2(char **av)
@@ -45,6 +57,8 @@ int check_invalid_2(char **av)
     int j;
 
     i = 0;
+	if (check_dup_2(av) == 1)
+		return (1);
     while (av[i])
     {
         if (check_invalid(av[i]))
@@ -56,7 +70,7 @@ int check_invalid_2(char **av)
         while (av[i][j])
         {
             if (ft_isalpha(av[i][j]) || ((av[i][j] == '-' || av[i][j] == '+')
-                && (av[i][j + 1] == '-' || av[i][j + 1] == '+')))
+					&& (av[i][j + 1] == '-' || av[i][j + 1] == '+')))
                 return (1);
             j++;
         }

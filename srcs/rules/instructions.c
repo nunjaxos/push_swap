@@ -6,7 +6,7 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 08:28:40 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/27 15:05:46 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/02/27 20:02:45 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_swap(t_stack	**stack)
 {
 	t_stack *tmp;
+	
 	if (!*stack || (*stack)->next == NULL)
 		return (-1);
 	tmp = *stack;
@@ -45,10 +46,10 @@ int ft_rotate(t_stack **stack)
 	if (!*stack || (*stack)->next == NULL)
 		return (-1);
 	tmp = *stack;
-	last = lstlast(*stack);
 	*stack = (*stack)->next;
-	tmp->next = NULL;
+	last = lstlast(*stack);
 	last->next = tmp;
+	tmp->next = NULL;
 	return (0);
 }
 
@@ -60,7 +61,7 @@ int	ft_reverse_rotate(t_stack **stack)
 	if (!*stack || (*stack)->next == NULL)
 		return (-1);
 	last = *stack;
-	while (last->next -> next)
+	while (last->next->next)
 		last = last->next;
 	tmp = last->next;
 	last->next = NULL;

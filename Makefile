@@ -1,4 +1,4 @@
-NAME    =   PUSH_SWAP
+NAME    =   push_swap
 
 SRC =       srcs/parcing/helper_functions.c\
             srcs/parcing/parcing.c\

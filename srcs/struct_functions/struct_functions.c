@@ -6,7 +6,7 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 12:34:36 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/27 15:46:11 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:20:01 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void	lstclear(t_stack **lst)
 	iter = *lst;
 	while (iter)
 	{
-		tmp = iter;
-		iter = iter->next;
+		tmp = iter->next;
 		lstdelone(tmp);
+		iter = tmp;
 	}
 	*lst = NULL;
 }

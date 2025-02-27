@@ -6,7 +6,7 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 21:22:41 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/27 15:46:57 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:26:12 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int ac, char **av)
 {
     t_stack *stack_a;
     t_stack *stack_b;
-    char **str;
+    char	**str;
 
     if (ac == 1)
         return (0);
