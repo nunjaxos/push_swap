@@ -1,49 +1,50 @@
-NAME    =   push_swap
+NAME	=	push_swap
 
-SRC =       srcs/parcing/helper_functions.c\
-            srcs/parcing/parcing.c\
-            srcs/parcing/parse.c\
-            srcs/rules/instructions.c\
-            srcs/rules/rules_00.c\
-            srcs/rules/rules_01.c\
-            srcs/rules/rules_02.c\
-            srcs/sort_functions/big_sort.c\
-            srcs/sort_functions/small_sort.c\
-            srcs/sort_functions/sort.c\
-			srcs/struct_functions/stack_fill.c\
-			srcs/struct_functions/struct_functions.c\
-            srcs/utils/utils_00.c\
-            srcs/utils/utils_01.c\
-            srcs/utils/utils_02.c\
-			srcs/push_swap.c\
+SRC		=	srcs/push_swap.c \
+			srcs/parcing/parcing.c \
+			srcs/struct_funcs/stack_fill.c \
+			srcs/parcing/helper_funcs.c \
+			srcs/struct_funcs/struct_funcs.c \
+			srcs/rules/instructions.c \
+			srcs/rules/rules.c \
+			srcs/rules/rules2.c \
+			srcs/rules/rules3.c \
+			srcs/utils/utils.c \
+			srcs/sort_funcs/small_sort.c \
+			srcs/sort_funcs/big_sort.c \
+			srcs/utils/utils2.c \
+			srcs/utils/utils3.c \
+			srcs/sort_funcs/sort.c \
+			srcs/parcing/parse.c
 
-CC  =   cc
 
-CFLAGS  =	-Wall -Wextra -Werror
+CC		=	cc
 
-LIBFT   =	libft_push/libft_push.a
+CFLAGS	=	-Wall -Werror -Wextra -g
 
-OBJ =   $(SRC:.c=.o)
+LIBFT	=	libft/libft.a
 
-all :   $(NAME)
+OBJ		=	$(SRC:.c=.o)
 
-$(NAME):        $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) -L libft_push/ -lft -o $(NAME)
+all		:	$(NAME)
 
-%.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME):	$(OBJ) $(LIBFT)
+			$(CC) $(CFLAGS) $(OBJ) -L libft/ -lft -o $(NAME)
 
-$(LIBFT) :
-	make -s -C libft_push/
+%.o	 : %.c
+		$(CC) $(CFLAGS) -c $< -o $@
 
+$(LIBFT):
+		make -s -C libft/
 clean:
-	make clean -s -C libft_push
-	rm -rf $(OBJ)
+		make clean -s -C libft
+		rm -rf $(OBJ)
 
-fclean : clean
-	rm -rf $(NAME)
-	make fclean -s -C libft_push
+fclean: clean
+		rm -rf $(NAME) $(NAME)
+		make fclean -s -C libft
 
-re:      fclean all
+re:	fclean all
+
 
 .PHONY: all clean fclean re

@@ -3,30 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   parcing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouaoud <ybouaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 16:16:24 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/27 19:03:42 by abhmidat         ###   ########.fr       */
+/*   Created: 2024/03/31 05:50:18 by ybouaoud          #+#    #+#             */
+/*   Updated: 2024/05/06 20:24:22 by ybouaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int check_nill(char **av)
+int	dup_check2(int *array, int len)
 {
-    int i;
+	int	i;
+	int	j;
 
-    i = 0;
-    while (av[i])
-    {
-        if (!av[i][0])
-            return (1);
-        i++;
-    }
-    return (0);
+	i = 0;
+	while (i < len)
+	{
+		j = i + 1;
+		while (j < len)
+		{
+			if (array[i] == array[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
-int check_invalid(char *av)
+int	dup_check(char **av)
+{
+	int	i;
+	int	*array;
+	int	len;
+
+	i = 0;
+	len = ft_numlen(av);
+	array = (int *)malloc(sizeof(int) * len);
+	if (!array)
+		return (1);
+	while (i < len)
+	{
+		array[i] = ft_atol(av[i]);
+		i++;
+	}
+	if (dup_check2(array, len) == 1)
+	{
+		free(array);
+		return (1);
+	}
+	free(array);
+	return (0);
+}
+
+int	checker2(char *av)
 {
 	int	i;
 
@@ -51,75 +82,44 @@ int check_invalid(char *av)
 	return (0);
 }
 
-int check_invalid_2(char **av)
+int	nill_check(char **av)
 {
-    int i;
-    int j;
+	int	i;
 
-    i = 0;
-	if (check_dup_2(av) == 1)
+	i = 0;
+	while (av[i])
+	{
+		if (!(av[i][0]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	checker(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (dup_check(av) == 1)
 		return (1);
-    while (av[i])
-    {
-        if (check_invalid(av[i]))
-            return (1);
-        else if ((ft_atol(av[i]) > 2147483647) 
-            || ft_atol(av[i]) < -2147483648)
-            return (1);
-        j = 0;
-        while (av[i][j])
-        {
-            if (ft_isalpha(av[i][j]) || ((av[i][j] == '-' || av[i][j] == '+')
+	while (av[i])
+	{
+		j = 0;
+		if (checker2(av[i]) == 1)
+			return (1);
+		else if ((ft_atol(av[i]) > 2147483647)
+			|| (ft_atol(av[i]) < -2147483648))
+			return (1);
+		while (av[i][j])
+		{
+			if (ft_isalpha(av[i][j]) || ((av[i][j] == '-' || av[i][j] == '+')
 					&& (av[i][j + 1] == '-' || av[i][j + 1] == '+')))
-                return (1);
-            j++;
-        }
-        i++;
-    }
-    return (0);
-}
-
-
-int check_dup(int *arr, int len)
-{
-    int i;
-    int j;
-    
-    i = 0;
-    while (i < len)
-    {
-        j = i + 1;
-        while (j < len)
-        {
-            if (arr[i] == arr[j])
-                return (1);
-            j++;
-        }
-        i++;
-    }
-    return (0);
-}
-int check_dup_2(char **av)
-{
-    int i;
-    int *arr;
-    int len;
-
-    i = 0;
-    len = num_len(av);
-    arr = (int *)malloc(sizeof(int) * len);
-    if (!arr)
-        return (1);
-    while (i < len)
-    {
-        arr[i] = atol(av[i]);
-        i++;
-    }
-    if (check_dup(arr, len) == 1)
-    {
-        free(arr);
-        return (1);
-    }
-    free(arr);
-    return (0);
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

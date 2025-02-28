@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_02.c                                         :+:      :+:    :+:   */
+/*   struct_funcs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouaoud <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 08:50:32 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/21 13:21:06 by abhmidat         ###   ########.fr       */
+/*   Created: 2024/04/02 08:49:27 by ybouaoud          #+#    #+#             */
+/*   Updated: 2024/04/10 02:33:49 by ybouaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void    rrr(t_stack **stack_a, t_stack **stack_b)
+void	ft_listdelone(t_stack *list)
 {
-    ft_reverse_rotate(stack_a);
-    ft_reverse_rotate(stack_b);
-    write(1, "rrr\n", 4);
+	if (!list)
+		return ;
+	free(list);
+}
+
+void	ft_listclear(t_stack **list)
+{
+	t_stack	*temp;
+	t_stack	*n;
+
+	n = *list;
+	if (!list)
+		return ;
+	while (n)
+	{
+		temp = n -> next;
+		ft_listdelone(n);
+		n = temp;
+	}
+	*list = NULL;
 }

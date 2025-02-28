@@ -3,40 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ybouaoud <ybouaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/23 21:22:41 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/27 19:26:12 by abhmidat         ###   ########.fr       */
+/*   Created: 2024/01/02 15:52:30 by ybouaoud          #+#    #+#             */
+/*   Updated: 2024/05/12 03:37:25 by ybouaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-    t_stack *stack_a;
-    t_stack *stack_b;
-    char	**str;
+	t_stack	*a;
+	t_stack	*b;
+	char	**str;
 
-    if (ac == 1)
-        return (0);
-    if ((check_empty_space(av + 1) == 1 || check_nill(av + 1) == 1))
-        error();
-    str = spliting_nums(av + 1);
-    if (!str)
-        error();
-    stack_a = NULL;
-    stack_b = NULL;
-    if (check_invalid_2(str) == 1)
-    {
-        lstclear(&stack_a);
-        free_strs(str);
-        error();
-    }
-    parsing(&stack_a, str);
-    sort(&stack_a, &stack_b);
-    lstclear(&stack_a);
-    lstclear(&stack_b);
-    free_strs(str);
-    return (0);
+	if (argc == 1)
+		return (0);
+	if ((empty_space_check(argv + 1)) == 1 || nill_check(argv + 1) == 1)
+		error();
+	str = spliting_nums(argv + 1);
+	if (!str)
+		error();
+	b = NULL;
+	a = NULL;
+	if (checker(str) == 1)
+	{
+		ft_listclear(&a);
+		free_strs(str);
+		error();
+	}
+	parsing(&a, str);
+	sort(&a, &b);
+	ft_listclear(&a);
+	ft_listclear(&b);
+	free_strs(str);
+	return (0);
 }

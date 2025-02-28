@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   rules3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybouaoud <ybouaoud@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 04:32:00 by ybouaoud          #+#    #+#             */
-/*   Updated: 2024/05/12 03:36:55 by ybouaoud         ###   ########.fr       */
+/*   Created: 2024/05/06 20:50:18 by ybouaoud          #+#    #+#             */
+/*   Updated: 2024/05/12 03:31:05 by ybouaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	error(void)
+void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	write(2, "Error\n", ft_strlen("Error\n"));
-	exit(1);
-}
-
-void	parsing(t_stack **a, char **str)
-{
-	(*a) = stack_fill(str);
-	if (!a)
-	{
-		free_strs(str);
-		error();
-	}
-	if (is_sorted(str) == 1)
-	{
-		ft_listclear(a);
-		free_strs(str);
-		exit(0);
-	}
+	ft_reverse_rotate(stack_a);
+	ft_reverse_rotate(stack_b);
+	write(1, "rrr\n", 4);
 }
