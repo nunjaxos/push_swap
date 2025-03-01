@@ -6,7 +6,7 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 14:43:37 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/28 14:43:39 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:30:04 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void				sort_stack(t_stack **a, t_stack **b);
 void				push_to_a(t_stack **a, t_stack **b, int *arr, int size);
 void				sort_helper(int *i, int *range, t_stack **b, int size);
 void				sort_helper2(int *i, int *range, t_stack **b, int size);
-void				give_value(int *step, int *i);
+void				give_value(int *step);
 void				push_helper(t_stack **b, int *arr, int *distance);
 int					*bubble_sort(t_stack **stack);
 int					*covert_to_arr(t_stack **a, int size);

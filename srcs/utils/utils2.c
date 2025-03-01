@@ -6,7 +6,7 @@
 /*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 14:41:53 by abhmidat          #+#    #+#             */
-/*   Updated: 2025/02/28 14:41:56 by abhmidat         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:29:38 by abhmidat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,9 @@ int	push_min_to_b_5(t_stack **a, t_stack **b)
 	return (0);
 }
 
-void	give_value(int *step, int *i)
+void	give_value(int *step)
 {
 	*step = 0;
-	*i = 0;
 }
 
 int	*bubble_sort(t_stack **stack)
@@ -92,7 +91,7 @@ int	*bubble_sort(t_stack **stack)
 
 	len = list_size(stack);
 	sorted = covert_to_arr(stack, list_size(stack));
-	give_value(&step, &i);
+	give_value(&step);
 	while (step < len - 1)
 	{
 		i = 0;
