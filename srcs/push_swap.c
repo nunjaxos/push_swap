@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/28 14:41:47 by abhmidat          #+#    #+#             */
+/*   Updated: 2025/02/28 19:49:29 by abhmidat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
@@ -16,7 +27,7 @@ int	main(int argc, char **argv)
 		error();
 	b = NULL;
 	a = NULL;
-	if (checker(str) == 1)
+	if (checker(str))
 	{
 		ft_listclear(&a);
 		free_strs(str);

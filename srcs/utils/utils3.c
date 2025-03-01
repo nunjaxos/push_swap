@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils3.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abhmidat <abhmidat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/28 14:41:41 by abhmidat          #+#    #+#             */
+/*   Updated: 2025/02/28 14:51:45 by abhmidat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
@@ -11,9 +22,7 @@ t_stack	*find_biggest(t_stack *a)
 	{
 		next = a->next;
 		if (next != NULL && next->content > max->content)
-		{
 			max = next;
-		}
 		a = next;
 	}
 	return (max);
